@@ -39,7 +39,10 @@ class ORM
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 title VARCHAR(100) NOT NULL,
                 body TEXT NOT NULL,
-                category VARCHAR(20) NOT NULL
+                category VARCHAR(20) NOT NULL,
+                author VARCHAR(20) NOT NULL,
+                created_at DATETIME DEFAULT (datetime(\'now\', \'localtime\')),
+                updated_at DATETIME DEFAULT (datetime(\'now\', \'localtime\'))
             )');
         } catch (PDOException $ex) {
             echo $ex->getMessage();
@@ -53,16 +56,18 @@ class ORM
      * @param string $title The title of the article
      * @param string $body The body of the article
      * @param string $category The category of the article
+     * @param string $author The username of the author
      * 
      * @throws Exception
      */
-    public function insertArticle(string $title, string $body, string $category): void
+    public function insertArticle(string $title, string $body, string $category, string $author): void
     {
         try {
-            $statement = $this->pdo->prepare('INSERT INTO articles (title, body, category) VALUES (:title, :body, :category)');
+            $statement = $this->pdo->prepare('INSERT INTO articles (title, body, category, author) VALUES (:title, :body, :category, :author)');
             $statement->bindValue(':title', $title);
             $statement->bindValue(':body', $body);
             $statement->bindValue(':category', $category);
+            $statement->bindValue(':author', $author);
             $statement->execute();
         } catch (PDOException $ex) {
             echo $ex->getMessage();
