@@ -7,7 +7,7 @@ class ORM
     /**
      * @throws Exception
      */
-    public function __construc()
+    public function __construct()
     {
         try {
             $this->pdo = new PDO('sqlite:' . dirname(__FILE__) . '/database.db');
@@ -105,7 +105,7 @@ class ORM
             $statement->execute();
             $rowCount = (int) $statement->fetchColumn();
 
-            return $rowCount == 0 ? false : true;
+            return $rowCount != 0;
         } catch (PDOException $ex) {
             echo $ex->getMessage();
             throw new Exception();
