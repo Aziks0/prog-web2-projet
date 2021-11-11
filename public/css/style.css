@@ -1,5 +1,6 @@
 :root {
   --main-text-color: #ffffff;
+  --header-height: 68px;
 }
 
 body {
@@ -13,5 +14,24 @@ body {
 @media only screen and (min-width: 768px) {
   body {
     font-size: 14px;
+  }
+}
+
+/*
+  Fixed header
+  from https://limpid.nl/lab/css/fixed/header
+*/
+@media only screen and (min-width: 768px) {
+  body {
+    padding-top: var(--header-height);
+  }
+
+  * html body {
+    overflow: hidden;
+  }
+
+  * html .content {
+    height: 100%;
+    overflow: auto;
   }
 }

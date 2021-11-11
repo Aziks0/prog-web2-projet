@@ -4,6 +4,20 @@
   justify-content: center;
 }
 
+/*
+  Fixed header
+  from https://limpid.nl/lab/css/fixed/header
+*/
+@media only screen and (min-width: 768px) {
+  .header__fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+  }
+}
+
 .header__brand {
   font-size: 32px;
 }

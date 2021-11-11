@@ -1,8 +1,8 @@
-<header class="header">
+<header class="header header__fixed">
     <div class="header__content">
         <a class="header__brand" href="/prog-web2-projet/public">Critics</a>
         <nav class="header__nav">
-            <a href="/prog-web2-projet/public">Accueil</a>
+            <a href="/prog-web2-projet/public/#">Accueil</a>
             <a href="#">Articles</a>
             <a href="#">À propos</a>
         </nav>
