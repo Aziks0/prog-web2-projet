@@ -1,11 +1,22 @@
 <header class="header">
     <div class="header__content">
-        <a id="header__brand" href="#">Critics</a>
+        <a class="header__brand" href="/prog-web2-projet/public">Critics</a>
         <nav class="header__nav">
-            <a href="#">Accueil</a>
+            <a href="/prog-web2-projet/public">Accueil</a>
             <a href="#">Articles</a>
             <a href="#">À propos</a>
         </nav>
-        <a href="#">Se connecter</a>
+        <div class="header__session__container">
+            <?php
+            session_start();
+            if (isset($_SESSION['username'])) :
+            ?>
+                <a href="/prog-web2-projet/public/publish">Écrire un article</a>
+                <a href="/prog-web2-projet/public/logout">Se déconnecter</a>
+            <?php else : ?>
+                <a href="/prog-web2-projet/public/login">Se connecter</a>
+            <?php endif; ?>
+
+        </div>
     </div>
 </header>
