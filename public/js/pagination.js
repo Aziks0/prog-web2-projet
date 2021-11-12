@@ -44,7 +44,43 @@ const createPagination = (articlesCount) => {
     return ulContainer;
 };
 
-// TODO: show the articles on the page
+/**
+ * Create articles elements
+ *
+ * @param {Array} articles An array of articles
+ * @returns {HTMLDivElement} A div element containing the articles
+ */
+const createArticles = (articles) => {
+    if (articles.length === 0) return;
+
+    const divContainer = document.createElement('div');
+    divContainer.classList.add('index__article__container');
+
+    articles.forEach((article) => {
+        const articleElement = document.createElement('article');
+
+        const title = document.createElement('h2');
+        title.innerHTML = article.title;
+
+        const body = document.createElement('p');
+        body.innerHTML = article.body;
+
+        const category = document.createElement('div');
+        category.innerHTML = article.category;
+
+        const date = document.createElement('div');
+        date.innerHTML = article.created_at;
+
+        articleElement.appendChild(title);
+        articleElement.appendChild(body);
+        articleElement.appendChild(category);
+        articleElement.appendChild(date);
+        divContainer.appendChild(articleElement);
+    });
+
+    return divContainer;
+};
+
 // TODO: show the error on the page
 fetch(`../src/pagination.php?nbArticle=${articlesPerPage}&page=${pageNumber}`)
     .then(checkFetchError)
@@ -53,9 +89,11 @@ fetch(`../src/pagination.php?nbArticle=${articlesPerPage}&page=${pageNumber}`)
 
         if (response.articlesCount === 0) return;
 
+        const articlesContainer = createArticles(response.articles);
         const paginationContainer = createPagination(response.articles_count);
 
         const contentContainer = document.querySelector('.content');
+        contentContainer.appendChild(articlesContainer);
         contentContainer.appendChild(paginationContainer);
     })
     .catch((error) => console.log(error));
