@@ -94,6 +94,56 @@ class ORM
     }
 
     /**
+     * Fetch articles from the database, ordered by creation date in descending
+     * order (last articles first), with a limit and an offset
+     * 
+     * Exemple: \
+     * $limit = 5 and $offset = 0 will return the last 5 articles created \
+     * $limit = 5 and $offset = 5 will return the last 5 articles created BEFORE
+     * the last 5 articles created
+     * 
+     * @param int $limit The SQL LIMIT
+     * @param int $offset The SQL OFFSET
+     * 
+     * @return array An array containing articles \
+     * The articles are arrays indexed by their column name, or an empty array
+     * if there are no article
+     * 
+     * @throws Exception
+     */
+    public function fetchArticlesLimited(int $limit, int $offset): array
+    {
+        try {
+            $statement = $this->pdo->prepare('SELECT * FROM articles ORDER BY id DESC LIMIT :limit OFFSET :offset');
+            $statement->bindValue(':limit', $limit);
+            $statement->bindValue(':offset', $offset);
+            $statement->execute();
+
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $ex) {
+            echo $ex->getMessage();
+            throw new Exception('Failed to fetch the articles');
+        }
+    }
+
+    /**
+     * Get the number of articles in the database
+     * 
+     * @return int The number of articles in the database
+     * 
+     * @throws Exception
+     */
+    public function getCountArticles(): int
+    {
+        try {
+            return (int) $this->pdo->query('SELECT COUNT(*) FROM articles')->fetchColumn();
+        } catch (PDOException $ex) {
+            echo $ex->getMessage();
+            throw new Exception('Failed to get articles count');
+        }
+    }
+
+    /**
      * Check if a username is in the database
      * 
      * @param string $username The username to check

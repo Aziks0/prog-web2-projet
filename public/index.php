@@ -10,6 +10,8 @@
 
 <body>
     <?php include_once('header.php'); ?>
+
+    <script src="js/pagination.js"></script>
 </body>
 
 </html>
