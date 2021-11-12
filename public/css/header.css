@@ -83,10 +83,3 @@
     justify-content: space-around;
   }
 }
-
-/* QUESTION: global ? */
-.header a,
-.header a:visited {
-  text-decoration: none;
-  color: var(--main-text-color);
-}

@@ -35,3 +35,9 @@ body {
     overflow: auto;
   }
 }
+
+a,
+a:visited {
+  text-decoration: none;
+  color: var(--main-text-color);
+}
