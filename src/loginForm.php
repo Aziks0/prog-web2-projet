@@ -28,6 +28,7 @@ try {
     $databasePassword = $ORM->fetchUser($username)['password'];
 } catch (Exception $ex) {
     header('Location: ../public/login?error=Erreur serveur');
+    exit();
 }
 
 if (!password_verify($password, $databasePassword)) {
