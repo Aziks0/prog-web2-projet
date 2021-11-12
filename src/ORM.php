@@ -79,7 +79,7 @@ class ORM
      * Fetch articles from the database
      * 
      * @return array An array containing all articles, the articles are arrays
-     * indexed by their column name, or an empy array if there are no article
+     * indexed by their column name, or an empty array if there are no article
      * 
      * @throws Exception
      */
@@ -144,7 +144,8 @@ class ORM
      * @param string $username The username of the user
      * 
      * @return array An array containing the id and the hashed password of the
-     * user indexed by their column name, or an empty array if the user is not in the database
+     * user indexed by their column name, or an empty array if the user is not
+     * in the database
      * 
      * @throws Exception
      */
