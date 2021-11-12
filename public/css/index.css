@@ -1,0 +1,36 @@
+.index__pagination__container {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.index__pagination__container > li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 18px;
+  width: 16px;
+  margin: 0 2px 0 2px;
+}
+
+.index__pagination__container > li > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .index__pagination__container > li {
+    font-size: 16px;
+    height: 22px;
+    width: 20px;
+    margin: 0 4px 0 4px;
+  }
+}
+
+.index__pagination__selected {
+  background-color: lightslategray;
+}

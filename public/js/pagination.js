@@ -1,5 +1,5 @@
 const params = new URLSearchParams(location.search);
-const pageNumber = params.get('page') || 1; // pageNumber = 1 if no query param
+const pageNumber = parseInt(params.get('page')) || 1; // pageNumber = 1 if no query param
 const articlesPerPage = 5;
 
 /**
@@ -16,12 +16,46 @@ const checkFetchError = (res) => {
     throw Error(res.statusText);
 };
 
-// TODO: show pagination on the page
+/**
+ * Create pagination elements
+ *
+ * @param {number} articlesCount The total number of articles
+ * @returns {HTMLUListElement} A ul element containing the pagination
+ */
+const createPagination = (articlesCount) => {
+    const totalPages = Math.ceil(articlesCount / articlesPerPage);
+
+    const ulContainer = document.createElement('ul');
+    ulContainer.classList.add('index__pagination__container');
+
+    for (let i = 1; i < totalPages + 1; i++) {
+        const list = document.createElement('li');
+
+        if (i === pageNumber) list.classList.add('index__pagination__selected');
+
+        const anchor = document.createElement('a');
+        anchor.href = `/prog-web2-projet/public?page=${i}`;
+        anchor.innerHTML = i;
+
+        list.appendChild(anchor);
+        ulContainer.appendChild(list);
+    }
+
+    return ulContainer;
+};
+
 // TODO: show the articles on the page
 // TODO: show the error on the page
 fetch(`../src/pagination.php?nbArticle=${articlesPerPage}&page=${pageNumber}`)
     .then(checkFetchError)
     .then((response) => {
         console.log(response);
+
+        if (response.articlesCount === 0) return;
+
+        const paginationContainer = createPagination(response.articles_count);
+
+        const contentContainer = document.querySelector('.content');
+        contentContainer.appendChild(paginationContainer);
     })
     .catch((error) => console.log(error));
