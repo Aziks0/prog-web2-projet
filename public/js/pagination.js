@@ -28,6 +28,17 @@ const createPagination = (articlesCount) => {
     const divContainer = document.createElement('div');
     divContainer.classList.add('index__pagination__container');
 
+    const buttonPrevious = document.createElement('button');
+    if (pageNumber === 1) buttonPrevious.disabled = true;
+    buttonPrevious.type = 'Button';
+    buttonPrevious.innerHTML = '<';
+    buttonPrevious.addEventListener(
+        'click',
+        () =>
+            (location.href = `/prog-web2-projet/public?page=${pageNumber - 1}`)
+    );
+    divContainer.appendChild(buttonPrevious);
+
     const ul = document.createElement('ul');
 
     for (let i = 1; i < totalPages + 1; i++) {
@@ -44,6 +55,17 @@ const createPagination = (articlesCount) => {
     }
 
     divContainer.appendChild(ul);
+
+    const buttonNext = document.createElement('button');
+    if (pageNumber === totalPages) buttonNext.disabled = true;
+    buttonNext.type = 'Button';
+    buttonNext.innerHTML = '>';
+    buttonNext.addEventListener(
+        'click',
+        () =>
+            (location.href = `/prog-web2-projet/public?page=${pageNumber + 1}`)
+    );
+    divContainer.appendChild(buttonNext);
 
     return divContainer;
 };
