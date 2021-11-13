@@ -1,20 +1,30 @@
+:root {
+  --pagination-li-size: 18px;
+  --pagination-li-size-desktop: calc(var(--pagination-li-size) + 4px);
+}
+
 .index__pagination__container {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.index__pagination__container > ul {
+  display: flex;
   list-style: none;
   padding: 0;
 }
 
-.index__pagination__container > li {
+.index__pagination__container > ul > li {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 18px;
-  width: 16px;
+  height: var(--pagination-li-size);
+  width: var(--pagination-li-size);
   margin: 0 2px 0 2px;
 }
 
-.index__pagination__container > li > a {
+.index__pagination__container > ul > li > a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,10 +33,10 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .index__pagination__container > li {
+  .index__pagination__container > ul > li {
     font-size: 16px;
-    height: 22px;
-    width: 20px;
+    height: var(--pagination-li-size-desktop);
+    width: var(--pagination-li-size-desktop);
     margin: 0 4px 0 4px;
   }
 }

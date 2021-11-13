@@ -25,8 +25,10 @@ const checkFetchError = (res) => {
 const createPagination = (articlesCount) => {
     const totalPages = Math.ceil(articlesCount / articlesPerPage);
 
-    const ulContainer = document.createElement('ul');
-    ulContainer.classList.add('index__pagination__container');
+    const divContainer = document.createElement('div');
+    divContainer.classList.add('index__pagination__container');
+
+    const ul = document.createElement('ul');
 
     for (let i = 1; i < totalPages + 1; i++) {
         const list = document.createElement('li');
@@ -38,10 +40,12 @@ const createPagination = (articlesCount) => {
         anchor.innerHTML = i;
 
         list.appendChild(anchor);
-        ulContainer.appendChild(list);
+        ul.appendChild(list);
     }
 
-    return ulContainer;
+    divContainer.appendChild(ul);
+
+    return divContainer;
 };
 
 /**
