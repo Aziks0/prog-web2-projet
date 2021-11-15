@@ -1,4 +1,11 @@
-<?php session_start(); ?>
+<?php
+session_start();
+// Prevent logged in users from accessing the login page
+if (isset($_SESSION['username'])) {
+    header('Location: /prog-web2-projet/public');
+    exit();
+}
+?>
 
 <!DOCTYPE html>
 
