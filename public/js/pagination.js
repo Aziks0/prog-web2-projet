@@ -107,19 +107,42 @@ const createArticles = (articles) => {
     return divContainer;
 };
 
-// TODO: show the error on the page
+/**
+ * Create no article element
+ *
+ * @param {string} message The message to be displayed
+ * @returns {HTMLDivElement} A div element containing the no article message
+ */
+const createNoArticle = (message) => {
+    const noArticleDiv = document.createElement('div');
+    noArticleDiv.classList.add('index__no_article');
+    noArticleDiv.innerHTML = message;
+    return noArticleDiv;
+};
+
 fetch(`../src/pagination.php?nbArticle=${articlesPerPage}&page=${pageNumber}`)
     .then(checkFetchError)
     .then((response) => {
         console.log(response);
 
-        if (response.articlesCount === 0) return;
+        const contentContainer = document.querySelector('.index__content');
+
+        if (response.articlesCount === 0) {
+            const noArticleElement = createNoArticle('Aucune critique :(');
+            contentContainer.appendChild(noArticleElement);
+            return;
+        }
 
         const articlesContainer = createArticles(response.articles);
         const paginationContainer = createPagination(response.articles_count);
 
-        const contentContainer = document.querySelector('.content');
         contentContainer.appendChild(articlesContainer);
         contentContainer.appendChild(paginationContainer);
     })
-    .catch((error) => console.log(error));
+    .catch((error) => {
+        const noArticleElement = createNoArticle(
+            error.message + ' :(\n\nPlease retry later'
+        );
+        const contentContainer = document.querySelector('.index__content');
+        contentContainer.appendChild(noArticleElement);
+    });

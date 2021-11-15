@@ -6,6 +6,19 @@
   --pagination-button-size-desktop: calc(var(--pagination-button-size) + 4px);
 }
 
+.index__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.index__no_article {
+  margin-top: 20px;
+  font-size: 18px;
+  white-space: pre-line;
+  text-align: center;
+}
+
 .index__pagination__container {
   display: flex;
   justify-content: center;

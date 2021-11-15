@@ -14,7 +14,7 @@
 <body>
     <?php include_once('includes/header.php'); ?>
 
-    <div class="content"></div>
+    <div class="index__content"></div>
 
     <script src="js/pagination.js"></script>
 </body>
