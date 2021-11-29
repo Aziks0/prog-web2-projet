@@ -42,3 +42,8 @@ a:visited {
   text-decoration: none;
   color: var(--main-text-color);
 }
+
+.image {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}

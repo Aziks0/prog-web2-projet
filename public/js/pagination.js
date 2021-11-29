@@ -98,6 +98,7 @@ const createDesktopArticles = (articles, articlesCount) => {
 
         // TODO: image from db
         const image = document.createElement('img');
+        image.classList.add('image');
         image.src =
             'https://i0.wp.com/www.10wallpaper.com/wallpaper/1680x1050/1912/007_No_Time_to_Die_2020_Daniel_Craig_Films_Poster_1680x1050.jpg';
         image.alt = article.title + ' image';
@@ -172,6 +173,7 @@ const createMobileArticles = (articles, articlesCount) => {
 
         // TODO: image from db
         const image = document.createElement('img');
+        image.classList.add('image');
         image.src =
             'https://i0.wp.com/www.10wallpaper.com/wallpaper/1680x1050/1912/007_No_Time_to_Die_2020_Daniel_Craig_Films_Poster_1680x1050.jpg';
         image.alt = article.title + ' image';

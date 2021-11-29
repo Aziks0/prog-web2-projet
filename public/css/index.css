@@ -133,8 +133,6 @@
 
 .index__article__container.index__article__mobile > article > img {
   width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
 }
 
 .index__article__mobile .index__article__title {
@@ -196,8 +194,6 @@
 .index__article__container.index__article__desktop img {
   width: 48%;
   height: fit-content;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
 }
 
 .index__article__desktop .index__article__text__container {
