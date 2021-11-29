@@ -1,22 +1,8 @@
-import { formatDateFromSQL } from './utils.js';
+import { formatDateFromSQL, checkFetchError } from './utils.js';
 
 const params = new URLSearchParams(location.search);
 const pageNumber = parseInt(params.get('page')) || 1; // pageNumber = 1 if no query param
 const articlesPerPage = 5;
-
-/**
- * Return the body text of a fetch response if its status is OK, otherwise it
- * throws an error containing its status text
- *
- * @param {Response} res A fetch response
- * @returns {Promise<JSON>} The body text of the response parsed as JSON
- *
- * @throws Error containing the status text of the response
- */
-const checkFetchError = (res) => {
-    if (res.ok) return res.json();
-    throw Error(res.statusText);
-};
 
 /**
  * Create pagination elements
