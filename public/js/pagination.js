@@ -111,7 +111,7 @@ const createDesktopArticles = (articles, articlesCount) => {
 
         const body = document.createElement('div');
         body.classList.add('index__article__body');
-        body.innerText = article.body.replace(/\n/g, '').slice(0, 1000) + '...';
+        body.innerText = article.body.replace(/\n/g, '').slice(0, 1000);
 
         const bottomContainer = document.createElement('div');
         bottomContainer.classList.add('index__article__bottom__container');

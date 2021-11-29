@@ -201,17 +201,24 @@
 }
 
 .index__article__desktop .index__article__text__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 48%;
 }
 
 .index__article__desktop .index__article__title {
-  margin: 0 0 8px 0;
+  margin: 0;
 }
 
 .index__article__desktop .index__article__body {
+  display: -webkit-box;
+  -webkit-line-clamp: 13;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
   color: black;
   font-weight: bold;
-  height: 220px;
 }
 
 .index__article__desktop .index__article__bottom__container {
