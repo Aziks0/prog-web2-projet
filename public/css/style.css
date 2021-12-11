@@ -1,20 +1,22 @@
 :root {
+  --primary-background-color: #31363f;
+  --secondary-background-color: #282c34;
   --main-text-color: #ffffff;
   --header-height: 68px;
 }
 
 body {
   margin: 0;
-  font-family: Roboto, sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 12px;
-  background-color: #31363f;
+  background-color: var(--primary-background-color);
   color: var(--main-text-color);
 }
 
 @media only screen and (min-width: 768px) {
   body {
     font-size: 14px;
-    background-color: #282c34;
+    background-color: var(--secondary-background-color);
   }
 }
 
