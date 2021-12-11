@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="css/header.css">
+
 <header class="header header__fixed">
     <div class="header__content">
         <a class="header__brand" href="/prog-web2-projet/public">Critics</a>

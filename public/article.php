@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/article.css">
 </head>
 
