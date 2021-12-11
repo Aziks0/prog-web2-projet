@@ -80,7 +80,7 @@ const createDesktopArticles = (articles, articlesCount) => {
         const infoContainer = document.createElement('div');
         infoContainer.classList.add('index__article__info__container');
         infoContainer.onclick = () =>
-            (window.location.href = `./articles?id=${article.id}`);
+            (window.location.href = `./article?id=${article.id}`);
 
         // TODO: image from db
         const image = document.createElement('img');
@@ -155,7 +155,7 @@ const createMobileArticles = (articles, articlesCount) => {
     articles.forEach((article) => {
         const articleElement = document.createElement('article');
         articleElement.onclick = () =>
-            (window.location.href = `./articles?id=${article.id}`);
+            (window.location.href = `./article?id=${article.id}`);
 
         // TODO: image from db
         const image = document.createElement('img');
