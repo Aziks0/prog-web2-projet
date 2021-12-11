@@ -3,7 +3,7 @@
         <a class="header__brand" href="/prog-web2-projet/public">Critics</a>
         <nav class="header__nav">
             <a href="/prog-web2-projet/public/#">Accueil</a>
-            <a href="#articles">Articles</a>
+            <a href="/prog-web2-projet/public/#articles">Articles</a>
             <a href="#">À propos</a>
         </nav>
         <div class="header__session__container">
