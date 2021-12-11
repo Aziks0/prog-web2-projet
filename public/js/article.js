@@ -10,7 +10,7 @@ if (!articleId) {
 
 const displayError = (error) => {
     const p = document.createElement('p');
-    p.classList.add('article__error');
+    p.classList.add('article__error error');
     p.innerText = error;
 
     const contentElement = document.querySelector('.article__content');

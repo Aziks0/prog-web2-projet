@@ -237,6 +237,7 @@ fetch(`../src/pagination.php?nbArticle=${articlesPerPage}&page=${pageNumber}`)
         const noArticleElement = createNoArticle(
             error.message + ' :(\n\nPlease retry later'
         );
+        noArticleElement.classList.add('error');
         const contentContainer = document.querySelector('.index__content');
         contentContainer.appendChild(noArticleElement);
     });
