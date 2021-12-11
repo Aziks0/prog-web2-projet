@@ -164,6 +164,11 @@
   .index__article__background__container.index__article__desktop {
     display: flex;
   }
+
+  #articles {
+    position: relative;
+    top: -67px;
+  }
 }
 
 .index__article__background__container.index__article__desktop {
@@ -229,9 +234,4 @@
   margin-top: 20px;
   width: calc(100% + 20px);
   margin-left: -10px;
-}
-
-#articles {
-  position: relative;
-  top: -67px;
 }
