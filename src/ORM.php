@@ -76,20 +76,27 @@ class ORM
     }
 
     /**
-     * Fetch articles from the database
+     * Fetch an article from the database
      * 
-     * @return array An array containing all articles, the articles are arrays
-     * indexed by their column name, or an empty array if there are no article
+     * @param int Article ID
+     * 
+     * @return array An array containing an article \
+     * The array is indexed by column name, or an empty array
+     * if the article was not found
      * 
      * @throws Exception
      */
-    public function fetchArticles(): array
+    public function fetchArticle(int $id): array
     {
         try {
-            return $this->pdo->query('SELECT * FROM articles')->fetchAll(PDO::FETCH_ASSOC);
+            $statement = $this->pdo->prepare('SELECT * FROM articles WHERE id = :id');
+            $statement->bindValue(':id', $id);
+            $statement->execute();
+
+            return $statement->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $ex) {
             echo $ex->getMessage();
-            throw new Exception('Failed to fetch the articles');
+            throw new Exception('Failed to fetch the article');
         }
     }
 
