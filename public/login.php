@@ -43,6 +43,8 @@ if (isset($_SESSION['username'])) {
         </form>
     </div>
 
+    <?php include_once('includes/footer.php') ?>
+
     <script src="js/loginFormVerif.js"></script>
 </body>
 

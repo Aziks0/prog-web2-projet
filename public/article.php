@@ -34,6 +34,8 @@
     </div>
   </div>
 
+  <?php include_once('includes/footer.php') ?>
+
   <script type="module" src="js/article.js"></script>
 </body>
 

@@ -4,7 +4,7 @@
         <nav class="header__nav">
             <a href="/prog-web2-projet/public/#">Accueil</a>
             <a href="/prog-web2-projet/public/#articles">Articles</a>
-            <a href="#">À propos</a>
+            <a href="#footer">À propos</a>
         </nav>
         <div class="header__session__container">
             <?php if (isset($_SESSION['username'])) : ?>

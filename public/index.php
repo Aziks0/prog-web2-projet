@@ -24,6 +24,8 @@
         <a id="articles"></a>
     </div>
 
+    <?php include_once('includes/footer.php') ?>
+
     <script type="module" src="js/pagination.js"></script>
 </body>
 
