@@ -38,4 +38,17 @@ if (!password_verify($password, $databasePassword)) {
 
 $_SESSION['username'] = $username;
 
+if (isset($_POST['redirect_url'])) {
+    $redirect_url = htmlspecialchars($_POST['redirect_url']);
+
+    if (
+        filter_var($redirect_url, FILTER_VALIDATE_URL) ||
+        // FILTER_VALIDATE_URL doesn't like localhost
+        $_SERVER['HTTP_HOST'] === 'localhost'
+    ) {
+        header('Location: ' . $redirect_url);
+        exit();
+    }
+}
+
 header('Location: ../public');

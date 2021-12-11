@@ -38,6 +38,12 @@ if (isset($_SESSION['username'])) {
                 <p class="error" style="display: none;">Un mot de passe est requis</p>
             </div>
 
+            <?php if (isset($_SERVER['HTTP_REFERER'])) : ?>
+                <input type="hidden" name="redirect_url" value="<?php echo $_SERVER['HTTP_REFERER'] ?>">
+            <?php elseif (isset($_GET['redirect_url'])) : ?>
+                <input type="hidden" name="redirect_url" value="<?php echo $_GET['redirect_url'] ?>">
+            <?php endif; ?>
+
             <button type="submit" class="login__submit_button">Connexion</button>
         </form>
     </div>
