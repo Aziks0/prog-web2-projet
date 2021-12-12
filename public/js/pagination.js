@@ -82,12 +82,14 @@ const createDesktopArticles = (articles, articlesCount) => {
         infoContainer.onclick = () =>
             (window.location.href = `./article?id=${article.id}`);
 
-        // TODO: image from db
         const image = document.createElement('img');
         image.classList.add('image');
-        image.src =
-            'https://i0.wp.com/www.10wallpaper.com/wallpaper/1680x1050/1912/007_No_Time_to_Die_2020_Daniel_Craig_Films_Poster_1680x1050.jpg';
         image.alt = article.title + ' image';
+        image.src =
+            'data:image/' +
+            article.image_extension +
+            ';base64,' +
+            article.image;
 
         const textContainer = document.createElement('div');
         textContainer.classList.add('index__article__text__container');
@@ -157,12 +159,14 @@ const createMobileArticles = (articles, articlesCount) => {
         articleElement.onclick = () =>
             (window.location.href = `./article?id=${article.id}`);
 
-        // TODO: image from db
         const image = document.createElement('img');
         image.classList.add('image');
-        image.src =
-            'https://i0.wp.com/www.10wallpaper.com/wallpaper/1680x1050/1912/007_No_Time_to_Die_2020_Daniel_Craig_Films_Poster_1680x1050.jpg';
         image.alt = article.title + ' image';
+        image.src =
+            'data:image/' +
+            article.image_extension +
+            ';base64,' +
+            article.image;
 
         const title = document.createElement('h2');
         title.classList.add('index__article__title');
@@ -215,7 +219,7 @@ fetch(`../src/pagination.php?nbArticle=${articlesPerPage}&page=${pageNumber}`)
     .then((response) => {
         const contentContainer = document.querySelector('.index__content');
 
-        if (response.articlesCount === 0) {
+        if (response.articles_count === 0) {
             const noArticleElement = createNoArticle('Aucune critique :(');
             contentContainer.appendChild(noArticleElement);
             return;

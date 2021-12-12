@@ -27,11 +27,13 @@ fetch('../src/article?id=' + articleId)
         const category = document.querySelector('.article__category');
         category.innerText = response.category;
 
-        // TODO: image from db
         const image = document.querySelector('.article__image');
-        image.src =
-            'https://i0.wp.com/www.10wallpaper.com/wallpaper/1680x1050/1912/007_No_Time_to_Die_2020_Daniel_Craig_Films_Poster_1680x1050.jpg';
         image.alt = response.title + ' image';
+        image.src =
+            'data:image/' +
+            response.image_extension +
+            ';base64,' +
+            response.image;
 
         const body = document.querySelector('.article__body');
         body.innerText = response.body;

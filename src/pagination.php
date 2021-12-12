@@ -34,6 +34,12 @@ if (
         $offset = $numberArticle * ($page - 1);
         $articles = $ORM->fetchArticlesLimited($numberArticle, $offset);
 
+        // Encode every article's image to base64
+        $numberArticleFetched = count($articles);
+        for ($i = 0; $i < $numberArticleFetched; $i++) {
+            $articles[$i]['image'] = base64_encode($articles[$i]['image']);
+        }
+
         $articlesCount = $ORM->getCountArticles();
 
         $data = array(

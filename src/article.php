@@ -39,11 +39,14 @@ if (empty($article)) {
   exit();
 }
 
+$image = base64_encode($article['image']);
+
 $data = array(
   'id' => $article['id'],
   'author' => $article['author'],
   'title' => $article['title'],
   'body' => $article['body'],
+  'image' => $image,
   'category' => $article['category'],
   'created_at' => $article['created_at'],
   'updated_at' => $article['updated_at']

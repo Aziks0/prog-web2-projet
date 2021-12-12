@@ -41,6 +41,8 @@ class ORM
                 body TEXT NOT NULL,
                 category VARCHAR(20) NOT NULL,
                 author VARCHAR(20) NOT NULL,
+                image LONGBLOB NOT NULL,
+                image_extension VARCHAR(5) NOT NULL,
                 created_at DATETIME DEFAULT (datetime(\'now\', \'localtime\')),
                 updated_at DATETIME DEFAULT (datetime(\'now\', \'localtime\'))
             )');
@@ -57,18 +59,39 @@ class ORM
      * @param string $body The body of the article
      * @param string $category The category of the article
      * @param string $author The username of the author
+     * @param string $image The base64 string of a png image
+     * 
+     * @return int The id of the inserted article
      * 
      * @throws Exception
      */
-    public function insertArticle(string $title, string $body, string $category, string $author): void
-    {
+    public function insertArticle(
+        string $title,
+        string $body,
+        string $category,
+        string $author,
+        string $image,
+        string $image_extension
+    ): int {
         try {
-            $statement = $this->pdo->prepare('INSERT INTO articles (title, body, category, author) VALUES (:title, :body, :category, :author)');
+            $statement =
+                $this->pdo->prepare(
+                    'INSERT INTO articles (title, body, category, author, image, image_extension)' .
+                        'VALUES (:title, :body, :category, :author, :image, :image_extension)'
+                );
             $statement->bindValue(':title', $title);
             $statement->bindValue(':body', $body);
             $statement->bindValue(':category', $category);
             $statement->bindValue(':author', $author);
+            $statement->bindValue(':image', $image);
+            $statement->bindValue(':image_extension', $image_extension);
             $statement->execute();
+
+            // Fetch the article's id
+            $statement = $this->pdo->prepare('SELECT id FROM articles WHERE author = :author ORDER BY id DESC');
+            $statement->bindValue(':author', $author);
+            $statement->execute();
+            return $statement->fetchColumn();
         } catch (PDOException $ex) {
             echo $ex->getMessage();
             throw new Exception('Failed to insert the article');
