@@ -1,6 +1,11 @@
-<?php session_start() ?>
+<?php
+session_start();
+include_once('includes/i18n.php');
+?>
 
 <!DOCTYPE html>
+
+<html lang="<?php echo $_SESSION['language'] ?>">
 
 <head>
     <meta charset="UTF-8">
@@ -15,7 +20,7 @@
     <?php include_once('includes/header.php'); ?>
 
     <div class="index__welcome__container">
-        <p>Bienvenue sur Critics, blog de critique de films et séries</p>
+        <p><?php echo $i18n->index->welcomeMessage ?></p>
     </div>
 
     <div class="index__content">

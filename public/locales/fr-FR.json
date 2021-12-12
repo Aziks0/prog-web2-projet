@@ -1,0 +1,66 @@
+{
+    "global": {
+        "category": {
+            "movie": "FILM",
+            "tvshow": "SERIE"
+        }
+    },
+    "index": {
+        "welcomeMessage": "Bienvenue sur Critics, blog de critique de films et séries",
+        "noArticle": "Aucune critique :(",
+        "serverError": " :(\nRéessayer plus tard"
+    },
+    "login": {
+        "usernameLabel": "Nom d'utilisateur:",
+        "usernameRequired": "Un nom d'utilisateur est requis",
+        "passwordLabel": "Mot de passe:",
+        "passwordRequired": "Un mot de passe est requis",
+        "submitButton": "Connexion",
+        "loginRequired": "Vous devez vous connecter pour accéder à cette page"
+    },
+    "article": {
+        "serverError": " :(\nRéessayer plus tard",
+        "articleIdNotFoundError": "Mauvais identifiant d'article!",
+        "articleUpdate": "- MAJ: "
+    },
+    "publish": {
+        "titleLabel": "Titre: (entre 6 et 100 caractères)",
+        "imageLabel": "Image: (.png, .jpg, .jpeg)",
+        "categoryLabel": "Catégorie:",
+        "bodyLabel": "Article: (minimum 300 caractères):",
+        "submitButton": "Publier",
+        "invalidCategory": " categorie invalide!"
+    },
+    "header": {
+        "homeAnchor": "ACCUEIL",
+        "articleAnchor": "ARTICLES",
+        "aboutAnchor": "À PROPOS",
+        "loginButton": "Se connecter",
+        "publishButton": "Écrire un article",
+        "logoutButton": "Se déconnecter"
+    },
+    "footer": {
+        "about": {
+            "title": "À propos de nous",
+            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras cursus eros vel libero malesuada, at lacinia eros tincidunt. Ut gravida dolor eu imperdiet finibus. Morbi accumsan sollicitudin lectus, ut aliquet leo ullamcorper ut. Donec pellentesque arcu eget blandit dignissim. Nulla lacinia in lorem vitae molestie."
+        },
+        "contacts": {
+            "title": "Contacts",
+            "address": {
+                "title": "Adresse:",
+                "body": "7 rue René Descartes, 67000 Strasbourg"
+            },
+            "phone": {
+                "title": "Téléphone:",
+                "body": "03 00 00 00 00"
+            },
+            "email": {
+                "title": "Email:",
+                "body": "email@gmail.com"
+            }
+        },
+        "socials": {
+            "title": "Nos réseaux sociaux"
+        }
+    }
+}

@@ -3,6 +3,7 @@
 session_start();
 
 include_once('ORM.php');
+include_once('i18n.php');
 
 if (!isset($_POST['username']) || !isset($_POST['password'])) {
     header('Location: ../public/login');
@@ -21,18 +22,18 @@ try {
     $ORM = new ORM();
 
     if (!$ORM->isUsernameInDatabase($username)) {
-        header('Location: ../public/login?error=Nom d\'utilisateur ou mot de passe incorrect');
+        header('Location: ../public/login?error=' . $i18n->login->wrongLogin);
         exit();
     }
 
     $databasePassword = $ORM->fetchUser($username)['password'];
 } catch (Exception $ex) {
-    header('Location: ../public/login?error=Erreur serveur');
+    header('Location: ../public/login?error=' . $i18n->login->serverError);
     exit();
 }
 
 if (!password_verify($password, $databasePassword)) {
-    header('Location: ../public/login?error=Nom d\'utilisateur ou mot de passe incorrect');
+    header('Location: ../public/login?error=' . $i18n->login->wrongLogin);
     exit();
 }
 

@@ -64,7 +64,6 @@
     flex-direction: row;
     text-align: center;
     margin: 0;
-    text-transform: uppercase;
   }
 
   .header__nav a:not(:last-child) {
@@ -72,14 +71,29 @@
   }
 }
 
-.header__session__container {
+.header__session {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.header__lang {
+  font-size: 18px;
 }
 
 @media only screen and (min-width: 768px) {
-  .header__session__container {
+  .header__session {
     height: 100%;
     justify-content: space-around;
+  }
+
+  .header__session__connexion {
+    align-items: flex-start;
+  }
+
+  .header__lang {
+    position: absolute;
+    right: 2%;
+    font-size: 26px;
   }
 }

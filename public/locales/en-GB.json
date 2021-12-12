@@ -1,0 +1,66 @@
+{
+    "global": {
+        "category": {
+            "movie": "MOVIE",
+            "tvshow": "TV SHOW"
+        }
+    },
+    "index": {
+        "welcomeMessage": "Welcome to Critics, a movies and series review blog",
+        "noArticle": "No review :(",
+        "serverError": " :(\nPlease retry later"
+    },
+    "login": {
+        "usernameLabel": "Username:",
+        "usernameRequired": "Username required",
+        "passwordLabel": "Password:",
+        "passwordRequired": "Password required",
+        "submitButton": "Login",
+        "loginRequired": "You need to be logged in to access this page"
+    },
+    "article": {
+        "serverError": " :(\nPlease retry later",
+        "articleIdNotFoundError": "Bad article id!",
+        "articleUpdate": "- UPDATED: "
+    },
+    "publish": {
+        "titleLabel": "Title: (between 6 and 100 characters)",
+        "imageLabel": "Image: (.png, .jpg, .jpeg)",
+        "categoryLabel": "Category:",
+        "bodyLabel": "Article: (at least 300 characters):",
+        "submitButton": "Publish",
+        "invalidCategory": " invalid category!"
+    },
+    "header": {
+        "homeAnchor": "HOME",
+        "articleAnchor": "ARTICLES",
+        "aboutAnchor": "ABOUT US",
+        "loginButton": "Login",
+        "publishButton": "Write an article",
+        "logoutButton": "Logout"
+    },
+    "footer": {
+        "about": {
+            "title": "About us",
+            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras cursus eros vel libero malesuada, at lacinia eros tincidunt. Ut gravida dolor eu imperdiet finibus. Morbi accumsan sollicitudin lectus, ut aliquet leo ullamcorper ut. Donec pellentesque arcu eget blandit dignissim. Nulla lacinia in lorem vitae molestie."
+        },
+        "contacts": {
+            "title": "Contacts",
+            "address": {
+                "title": "Address:",
+                "body": "7 rue René Descartes, 67000 Strasbourg"
+            },
+            "phone": {
+                "title": "Phone number:",
+                "body": "03 00 00 00 00"
+            },
+            "email": {
+                "title": "Email:",
+                "body": "email@gmail.com"
+            }
+        },
+        "socials": {
+            "title": "Social media"
+        }
+    }
+}

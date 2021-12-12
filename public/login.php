@@ -5,9 +5,13 @@ if (isset($_SESSION['username'])) {
     header('Location: /prog-web2-projet/public');
     exit();
 }
+
+include_once('includes/i18n.php');
 ?>
 
 <!DOCTYPE html>
+
+<html lang="<?php echo $_SESSION['language'] ?>">
 
 <head>
     <meta charset="UTF-8">
@@ -27,15 +31,15 @@ if (isset($_SESSION['username'])) {
             <?php endif; ?>
 
             <div class="login__username__container">
-                <label for="username">Nom d'utilisateur:</label>
+                <label for="username"><?php echo $i18n->login->usernameLabel ?></label>
                 <input type="text" name="username" id="username">
-                <p class="error" style="display: none;">Un nom d'utilisateur est requis</p>
+                <p class="error" style="display: none;"><?php echo $i18n->login->usernameRequired ?></p>
             </div>
 
             <div class="login__password__container">
-                <label for="password">Mot de passe:</label>
+                <label for="password"><?php echo $i18n->login->passwordLabel ?></label>
                 <input type="password" name="password" id="password">
-                <p class="error" style="display: none;">Un mot de passe est requis</p>
+                <p class="error" style="display: none;"><?php echo $i18n->login->passwordRequired ?></p>
             </div>
 
             <?php if (isset($_SERVER['HTTP_REFERER'])) : ?>
@@ -44,7 +48,7 @@ if (isset($_SESSION['username'])) {
                 <input type="hidden" name="redirect_url" value="<?php echo $_GET['redirect_url'] ?>">
             <?php endif; ?>
 
-            <button type="submit" class="login__submit_button">Connexion</button>
+            <button type="submit" class="login__submit_button"><?php echo $i18n->login->submitButton ?></button>
         </form>
     </div>
 

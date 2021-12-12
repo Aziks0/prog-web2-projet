@@ -1,8 +1,9 @@
-import { formatDateFromSQL, checkFetchError } from './utils.js';
+import { formatDateFromSQL, checkFetchError, getTranslation } from './utils.js';
 
 const params = new URLSearchParams(location.search);
 const pageNumber = parseInt(params.get('page')) || 1; // pageNumber = 1 if no query param
 const articlesPerPage = 5;
+const i18n = await getTranslation();
 
 /**
  * Create pagination elements
@@ -106,7 +107,7 @@ const createDesktopArticles = (articles, articlesCount) => {
         bottomContainer.classList.add('index__article__bottom__container');
 
         const category = document.createElement('div');
-        category.innerText = article.category;
+        category.innerText = i18n.global.category[article.category];
 
         const date = document.createElement('div');
         date.innerText = formatDateFromSQL(article.created_at);
@@ -173,7 +174,7 @@ const createMobileArticles = (articles, articlesCount) => {
         title.innerText = article.title;
 
         const category = document.createElement('div');
-        category.innerText = article.category;
+        category.innerText = i18n.global.category[article.category];
 
         const bottomContainer = document.createElement('div');
         bottomContainer.classList.add('index__article__bottom__container');
@@ -239,7 +240,7 @@ fetch(`../src/pagination.php?nbArticle=${articlesPerPage}&page=${pageNumber}`)
     })
     .catch((error) => {
         const noArticleElement = createNoArticle(
-            error.message + ' :(\n\nPlease retry later'
+            error.message + i18n.index.serverError
         );
         noArticleElement.classList.add('error');
         const contentContainer = document.querySelector('.index__content');

@@ -1,0 +1,9 @@
+{
+    "login": {
+        "serverError": "Server error :(\nPlease retry later",
+        "wrongLogin": "Username or password incorrect"
+    },
+    "publish": {
+        "serverError": "Server error :(\nPlease retry later"
+    }
+}

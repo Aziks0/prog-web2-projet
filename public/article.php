@@ -1,6 +1,11 @@
-<?php session_start() ?>
+<?php
+session_start();
+include_once('includes/i18n.php');
+?>
 
 <!DOCTYPE html>
+
+<html lang="<?php echo $_SESSION['language'] ?>">
 
 <head>
   <meta charset="UTF-8">

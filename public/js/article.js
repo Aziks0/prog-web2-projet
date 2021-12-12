@@ -1,16 +1,17 @@
-import { formatDateFromSQL, checkFetchError } from './utils.js';
+import { formatDateFromSQL, checkFetchError, getTranslation } from './utils.js';
 
 const params = new URLSearchParams(location.search);
 const articleId = parseInt(params.get('id'));
+const i18n = await getTranslation();
 
 if (!articleId) {
-    displayError('Bad article id');
+    displayError(i18n.article.articleIdNotFoundError);
     throw new Error('article id not found');
 }
 
 const displayError = (error) => {
     const p = document.createElement('p');
-    p.classList.add('article__error error');
+    p.classList.add('article__error', 'error');
     p.innerText = error;
 
     const contentElement = document.querySelector('.article__content');
@@ -25,7 +26,7 @@ fetch('../src/article?id=' + articleId)
         title.innerText = response.title;
 
         const category = document.querySelector('.article__category');
-        category.innerText = response.category;
+        category.innerText = i18n.global.category[response.category];
 
         const image = document.querySelector('.article__image');
         image.alt = response.title + ' image';
@@ -46,9 +47,9 @@ fetch('../src/article?id=' + articleId)
 
         const updatedAtElement = document.querySelector('.article__updated_at');
         if (updatedAt !== createdAt)
-            updatedAtElement.innerText = '- MAJ: ' + updatedAt;
+            updatedAtElement.innerText = i18n.article.articleUpdate + updatedAt;
 
         const author = document.querySelector('.article__author');
         author.innerText = response.author;
     })
-    .catch((error) => displayError(error + ' :(\nPlease retry later'));
+    .catch((error) => displayError(error + i18n.article.serverError));

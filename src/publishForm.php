@@ -3,6 +3,7 @@
 session_start();
 
 include_once('ORM.php');
+include_once('i18n.php');
 
 $categoryList = array('movie', 'tvshow');
 
@@ -39,7 +40,7 @@ try {
   $ORM = new ORM();
   $id = $ORM->insertArticle($title, $body, $category, $author, $image_blob, $image_extension);
 } catch (Exception $ex) {
-  header('Location: ../public/publish?error=Erreur serveur');
+  header('Location: ../public/publish?error=' . $i18n->publish->serverError);
   exit();
 }
 

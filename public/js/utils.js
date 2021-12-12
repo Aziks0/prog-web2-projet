@@ -27,3 +27,10 @@ export const checkFetchError = (res) => {
     if (res.ok) return res.json();
     throw Error(res.statusText);
 };
+
+export const getTranslation = async () => {
+    const language = document.documentElement.lang;
+    return fetch('./locales/' + language + '.json').then((response) =>
+        response.json()
+    );
+};

@@ -1,0 +1,9 @@
+{
+    "login": {
+        "serverError": "Erreur serveur :(\nRéessayer plus tard",
+        "wrongLogin": "Nom d'utilisateur ou mot de passe incorrect"
+    },
+    "publish": {
+        "serverError": "Erreur serveur :(\nRéessayer plus tard"
+    }
+}

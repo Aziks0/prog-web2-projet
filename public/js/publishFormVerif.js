@@ -1,3 +1,7 @@
+import { getTranslation } from './utils.js';
+
+const i18n = await getTranslation();
+
 const categoryList = ['movie', 'tvshow'];
 
 const form = document.querySelector('form');
@@ -36,7 +40,7 @@ form.addEventListener('submit', (event) => {
     // Prevent users from using an invalid category
     if (!categoryList.includes(category.value)) {
         categoryError = true;
-        categoryLabel.innerText += ' categorie invalide!';
+        categoryLabel.innerText += i18n.publish.invalidCategory;
         categoryLabel.classList.add('error');
     }
 
