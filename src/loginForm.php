@@ -25,8 +25,7 @@ try {
         header('Location: ../public/login?error=' . $i18n->login->wrongLogin);
         exit();
     }
-
-    $databasePassword = $ORM->fetchUser($username)['password'];
+    $databasePassword = $ORM->fetchUser($username);
 } catch (Exception $ex) {
     header('Location: ../public/login?error=' . $i18n->login->serverError);
     exit();

@@ -225,20 +225,19 @@ class ORM
      * 
      * @param string $username The username of the user
      * 
-     * @return array An array containing the id and the hashed password of the
-     * user indexed by their column name, or an empty array if the user is not
-     * in the database
+     * @return string the hashed password of the user, or an empty string if the
+     * user is not in the database
      * 
      * @throws Exception
      */
-    public function fetchUser(string $username): array
+    public function fetchUser(string $username): string
     {
         try {
-            $statement = $this->pdo->prepare('SELECT id, password FROM users WHERE username = :username');
+            $statement = $this->pdo->prepare('SELECT password FROM users WHERE username = :username');
             $statement->bindValue(':username', $username);
             $statement->execute();
 
-            return $statement->fetch(PDO::FETCH_ASSOC);
+            return $statement->fetchColumn();
         } catch (PDOException $ex) {
             echo $ex->getMessage();
             throw new Exception('Failed to fetch the user');
