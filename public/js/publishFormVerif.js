@@ -71,7 +71,7 @@ category.addEventListener('input', () => {
     if (!categoryError) return;
 
     categoryError = false;
-    category.innerText = 'Categorie:';
+    categoryLabel.innerText = 'Categorie:';
     categoryLabel.classList.remove('error');
 });
 
