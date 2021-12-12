@@ -1,0 +1,51 @@
+.publish__content {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.publish__background__container {
+  width: 100%;
+  max-width: 580px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 8px 10px 8px 10px;
+}
+
+label:not(:first-of-type) {
+  margin-top: 12px;
+}
+
+.publish__input {
+  margin-top: 4px;
+}
+
+select {
+  width: 100px;
+}
+
+button {
+  margin-top: 12px;
+}
+
+@media only screen and (min-width: 768px) {
+  .publish__background__container {
+    display: flex;
+    justify-content: center;
+    width: 900px;
+    max-width: 900px;
+    background-color: var(--primary-background-color);
+  }
+
+  form {
+    width: 90%;
+    margin: 26px 0 26px 0;
+  }
+
+  button {
+    width: 100px;
+  }
+}
