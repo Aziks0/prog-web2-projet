@@ -116,7 +116,9 @@ class ORM
             $statement->bindValue(':id', $id);
             $statement->execute();
 
-            return $statement->fetch(PDO::FETCH_ASSOC);
+            $article = $statement->fetch(PDO::FETCH_ASSOC);
+            if ($article === false) return array();
+            return $article;
         } catch (PDOException $ex) {
             echo $ex->getMessage();
             throw new Exception('Failed to fetch the article');
