@@ -4,6 +4,8 @@ session_start();
 
 include_once('ORM.php');
 
+$categoryList = array('movie', 'tvshow');
+
 if (
   !isset($_POST['title']) ||
   !isset($_FILES['image']) ||
@@ -22,7 +24,8 @@ $body = htmlspecialchars($_POST['body']);
 if (
   strlen($title) < 6 ||
   strlen($title) > 100 ||
-  strlen($body) < 300
+  strlen($body) < 300 ||
+  !in_array($category, $categoryList)
 ) {
   header('Location: ../public');
   exit();
