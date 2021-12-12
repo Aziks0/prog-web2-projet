@@ -11,7 +11,7 @@ if (
   !isset($_POST['body']) ||
   !isset($_SESSION['username'])
 ) {
-  header('Location: ../public/login');
+  header('Location: ../public');
   exit();
 }
 
@@ -24,7 +24,7 @@ if (
   strlen($title) > 100 ||
   strlen($body) < 300
 ) {
-  header('Location: ../public/login');
+  header('Location: ../public');
   exit();
 }
 
