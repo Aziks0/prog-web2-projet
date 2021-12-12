@@ -25,7 +25,7 @@ include_once('includes/i18n.php');
 
     <div class="index__content">
         <img class="index__welcome__image" src="./images/cinema.jpg" alt="cinema" style="display: none;">
-        <a id="articles"></a>
+        <a id="articles" aria-hidden="true"></a>
     </div>
 
     <?php include_once('includes/footer.php') ?>

@@ -111,6 +111,10 @@
   background-color: lightslategray;
 }
 
+.index__article__bottom__container p {
+  margin: 0;
+}
+
 /* ARTICLES MOBILE VERSION */
 
 .index__article__background__container.index__article__desktop {
@@ -221,6 +225,7 @@
   overflow: hidden;
   color: black;
   font-weight: bold;
+  margin: 0;
 }
 
 .index__article__desktop .index__article__bottom__container {

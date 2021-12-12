@@ -83,6 +83,13 @@ const createDesktopArticles = (articles, articlesCount) => {
         infoContainer.onclick = () =>
             (window.location.href = `./article?id=${article.id}`);
 
+        infoContainer.setAttribute('role', 'button');
+        infoContainer.setAttribute('tabindex', '0');
+        infoContainer.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key == 'Spacebar')
+                event.currentTarget.click();
+        });
+
         const image = document.createElement('img');
         image.classList.add('image');
         image.alt = article.title + ' image';
@@ -99,17 +106,17 @@ const createDesktopArticles = (articles, articlesCount) => {
         title.classList.add('index__article__title');
         title.innerText = article.title;
 
-        const body = document.createElement('div');
+        const body = document.createElement('p');
         body.classList.add('index__article__body');
-        body.innerText = article.body.replace(/\n/g, '').slice(0, 1000);
+        body.innerText = article.body.slice(0, 1000);
 
         const bottomContainer = document.createElement('div');
         bottomContainer.classList.add('index__article__bottom__container');
 
-        const category = document.createElement('div');
+        const category = document.createElement('p');
         category.innerText = i18n.global.category[article.category];
 
-        const date = document.createElement('div');
+        const date = document.createElement('p');
         date.innerText = formatDateFromSQL(article.created_at);
 
         bottomContainer.appendChild(category);
@@ -173,20 +180,20 @@ const createMobileArticles = (articles, articlesCount) => {
         title.classList.add('index__article__title');
         title.innerText = article.title;
 
-        const category = document.createElement('div');
-        category.innerText = i18n.global.category[article.category];
-
         const bottomContainer = document.createElement('div');
         bottomContainer.classList.add('index__article__bottom__container');
 
-        const date = document.createElement('div');
-        date.innerText = formatDateFromSQL(article.created_at);
+        const category = document.createElement('p');
+        category.innerText = i18n.global.category[article.category];
 
-        const line = document.createElement('div');
-        line.classList.add('index__article__line');
+        const date = document.createElement('p');
+        date.innerText = formatDateFromSQL(article.created_at);
 
         bottomContainer.appendChild(category);
         bottomContainer.appendChild(date);
+
+        const line = document.createElement('div');
+        line.classList.add('index__article__line');
 
         articleElement.appendChild(title);
         articleElement.appendChild(image);
@@ -209,7 +216,7 @@ const createMobileArticles = (articles, articlesCount) => {
  * @returns {HTMLDivElement} A div element containing the no article message
  */
 const createNoArticle = (message) => {
-    const noArticleDiv = document.createElement('div');
+    const noArticleDiv = document.createElement('p');
     noArticleDiv.classList.add('index__no_article');
     noArticleDiv.innerText = message;
     return noArticleDiv;
